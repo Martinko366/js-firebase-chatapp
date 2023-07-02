@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Chat App</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <style>
+        .user-image {
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+
+        .nickname-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .nickname {
+            font-weight: bold;
+            font-size: 23px;
+            margin-bottom: 0.2em;
+        }
+
+        .message {
+            font-size: 16px;
+        }
+
+        #messages {
+            max-height: 300px;
+            /* Adjust the maximum height as per your requirements */
+            overflow-y: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div id="nickname-form">
+                    <h4>Enter your nickname:</h4>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" id="nickname-input" placeholder="Nickname" required>
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" id="nickname-submit">Submit</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="invite-form" style="display: none;">
+                    <h4>Invite Code:</h4>
+                    <p id="invite-code"></p>
+                    <button class="btn btn-success" id="create-button">Create</button>
+                    <button class="btn btn-primary" id="join-button">Join</button>
+                </div>
+                <div id="join-form" style="display: none;">
+                    <h4>Enter Invite Code:</h4>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" id="invite-input" placeholder="Invite Code" required>
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" id="join-submit">Submit</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="chatbox" style="display: none;">
+                    <h4>Chatbox</h4>
+                    <div id="room-code"></div>
+                    <div id="messages" style="border: 1px solid #ccc; padding: 10px; margin-top: 10px;"></div>
+                    <div style="display: flex; margin-top: 10px;">
+                        <input type="text" class="form-control" id="message-input" placeholder="Type your message...">
+                        <button class="btn btn-primary" id="send-button" style="margin-left: 5px;">Send</button>
+                    </div>
+                    <button class="btn btn-danger" id="leave-button" style="margin-top: 10px;">Leave</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
